@@ -1,0 +1,62 @@
+#include <stdio.h>
+//criação de função convensor - formulas =em celcus (c = f - 32/ 1,8) em (f = c*1,8 + 32), em kelvin (k + 273)
+//funções
+
+float celsiusParaFahrenheit(float c);
+float FahrenheitParaCelsius(float f);
+float celsiusParakelvin(float k);
+
+//bloco principal
+int main(){
+	int opcao;
+	float tf, tc, tk; //variaveis criadas para temperatura_celsius, temperatura_fahrenheit, temperatura_kelvin
+	printf("Conversor de temperatura\n\n");
+	printf("Escolha uma opção:\n");
+	printf("1 - Celsius para Fahrenheit\n");
+	printf("2 - Celsius para kelvin : \n");
+	printf("3 - Fahrenheit para Celsius : \n");
+	scanf("%d", &opcao);
+	
+	printf("Digite o valor  da temperatura\n");
+	
+	//usei o switch case para poupar tempo, e achei mais facil 
+	//lê-se, se caso opcao 1 seja entt, se caso seja 2 entt, se caso seja 3 entt...
+  
+	switch(opcao){
+		case 1:
+			printf("Em celsius:");
+			scanf("%f", &tc);
+			tf = celsiusParaFahrenheit(tc); //chamo a função cm a saida na variavel de temp q quero
+			break;
+		
+		case 2:
+			printf("Em celsius:");
+			scanf("%f", &tc);
+			tk = celsiusParakelvin(tc);
+			break;
+		
+		case 3:
+		printf("Em fahrenheit:");
+			scanf("%f", &tf);
+			tc = FahrenheitParaCelsius(tf);
+		break;	
+	}
+	printf("Temperatura em Celsius: %.2f c\n", tc);
+	printf("Temperatura em Fahrenheit: %.2f c\n", tf);
+	printf("Temperatura em kelvin: %.2f c\n", tk);
+	
+	
+	return 0;
+}
+//aqui é a assinatura e implementação
+
+float celsiusParaFahrenheit(float c){
+	return (c*1.8 + 32);
+	
+}
+float FahrenheitParaCelsius(float f){
+	return (f-32)/ 1.8;
+}
+float celsiusParakelvin(float k){
+	return (k + 273);
+}
